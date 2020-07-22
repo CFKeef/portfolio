@@ -1,0 +1,9 @@
+@media screen and (max-width: 415px){
+    .LogoContainer {
+        display: inline;
+    }
+    .LogoContainer img {
+        width: 115px;
+        height: 40px;
+    }
+}

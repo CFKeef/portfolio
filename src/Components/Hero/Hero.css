@@ -1,0 +1,10 @@
+@media screen and (max-width: 415px){
+    .Hero-Container {
+        margin: 3REM auto;
+    }
+
+    .Hero-Container img {
+        height: 100%;
+        width: 100%;
+    }
+}

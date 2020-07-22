@@ -1,0 +1,32 @@
+@media screen and (max-width: 415px) {
+    .nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        
+        list-style: none;
+        padding: 0;
+    }
+    
+    .nav li a {
+        text-decoration: none;
+        color:black;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    
+    .nav > li:first-child {
+        margin-right: 1.5REM;
+    }
+
+    .nav > li:last-child {
+        background-color: #FD828A;
+        padding: .5rem;
+        border-radius: 5px;
+    }
+    
+    .nav > li:last-child a {
+        color: white;
+    }
+}
