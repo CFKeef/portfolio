@@ -1,9 +1,10 @@
 @media screen and (max-width: 415px){
     .Card {
         margin-top: 4REM;
-        margin-bottom: 4REM;
+        margin-bottom: 6REM;
         border-radius: 19px;
         color: white;
+        height: 358px;
     }
     .Card img{
         height: 100%;
@@ -35,7 +36,7 @@
         align-items: center;
     }
     .proj-text {
-        padding: 0 26px;
+        padding: 0 22px;
     }
     .text-desc {
         height: 64px;
@@ -48,10 +49,51 @@
     }
     .btns a {
         border: 4px solid white;
-        padding: .5REM;
+        padding: .5REM 1REM;
         border-radius: 19px;
         text-decoration: none;
         color: white;
         font-size: 18px;
     }
+    .Github0 { 
+        background-color: #B781D0;
+    }
+    .Live0 {
+        background-color: #0FCFC9;
+    }
+    .Github1 { 
+        background-color: #0FCFC9;
+    }
+    .Live1 {
+        background-color: #FD828A;
+    }
+    .Github2 { 
+        background-color: #FD828A;
+    }
+    .Live2 {
+        background-color: #B781D0;
+    }
+    .btnactive:active{
+        box-shadow: 0 0 0 white;
+        transform: translateY(1px);
+        opacity: 75%;
+    }
+}
+.Github0 { 
+    background-color: #B781D0;
+}
+.Live0 {
+    background-color: #0FCFC9;
+}
+.Github1 { 
+    background-color: #0FCFC9;
+}
+.Live1 {
+    background-color: #FD828A;
+}
+.Github2 { 
+    background-color: #FD828A;
+}
+.Live2 {
+    background-color: #B781D0;
 }
