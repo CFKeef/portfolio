@@ -17,7 +17,7 @@ class ProjectCard extends React.Component {
                 </div>
                 <div className='btns'>
                     <a className={'Github' + this.props.id + ' btnactive'} href="#">Github</a>
-                    <a className={'Live' + this.props.id + ' btnactive'} href="#">Live Site</a>
+                    <a className={'Live' + this.props.id + ' btnactive'} href="#">Visit</a>
                 </div>
             </div>
         )
