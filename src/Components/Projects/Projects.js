@@ -5,7 +5,7 @@ import SectionHeader from '../../Assets/Section2.svg';
 
 //Components
 import ProjectCard from '../ProjectCard/ProjectCard';
-
+import prodoProj from '../../Assets/prodoProj.svg'
 
 class Projects extends Component {
     render() {
@@ -19,9 +19,9 @@ class Projects extends Component {
                         name={project.name}
                         description={project.description}
                         techUsed={project.techUsed}
+                        imageName={prodoProj}
                     />
-                   )
-                })}
+                )})}
             </div>
         )
     }
