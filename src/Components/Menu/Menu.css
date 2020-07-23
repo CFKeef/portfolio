@@ -23,7 +23,7 @@
     .nav > li:last-child {
         background-color: #FD828A;
         padding: .5rem;
-        border-radius: 5px;
+        border-radius: .8REM;
     }
     
     .nav > li:last-child a {
