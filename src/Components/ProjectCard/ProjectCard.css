@@ -1,0 +1,57 @@
+@media screen and (max-width: 415px){
+    .Card {
+        margin-top: 4REM;
+        margin-bottom: 4REM;
+        border-radius: 19px;
+        color: white;
+    }
+    .Card img{
+        height: 100%;
+        width: 126px;
+        margin: 14px 0;
+    }
+    .Card h2 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+    .Card p {
+        font-size: 16px;
+        margin-top: 4px;
+        opacity: 65%;
+    }
+    .Numb0 {
+        background: #FD828A;
+    }
+    .Numb1 {
+        background: #B781D0;
+    }
+    .Numb2 {
+        background: #0FCFC9;
+    }
+    .proj-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .proj-text {
+        padding: 0 26px;
+    }
+    .text-desc {
+        height: 64px;
+        width: 100%;
+        overflow: hidden;
+    }
+    .btns {
+        display: flex;
+        justify-content: space-around;
+    }
+    .btns a {
+        border: 8px solid white;
+        padding: .5REM;
+        border-radius: 19px;
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+    }
+}

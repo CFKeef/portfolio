@@ -10,7 +10,7 @@ import prodoProj from '../../Assets/prodoProj.svg'
 class Projects extends Component {
     render() {
         return (
-            <div>
+            <div className="ProjectList"> 
                 <img src={SectionHeader} ></img>
                 {this.props.display.map( (project, index) => {
                    return (
@@ -20,6 +20,7 @@ class Projects extends Component {
                         description={project.description}
                         techUsed={project.techUsed}
                         imageName={prodoProj}
+                        id={project.id}
                     />
                 )})}
             </div>
