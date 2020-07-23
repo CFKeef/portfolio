@@ -29,4 +29,9 @@
     .nav > li:last-child a {
         color: white;
     }
+
+    .nav li:active{
+        transform: translateY(2px);
+        cursor: pointer;
+    }
 }

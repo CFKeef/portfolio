@@ -86,6 +86,9 @@
     .Live2 {
         background-color: #B781D0;
     }
+    .btnactive{
+        cursor: pointer;
+    }
     .btnactive:active{
         transform: translateY(2px);
     }

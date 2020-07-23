@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Mural from '../../Assets/circle mural.png';
+import Mural from '../../Assets/mural.svg';
 
 import './Hero.css';
 
