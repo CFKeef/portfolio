@@ -7,7 +7,7 @@ import './Hero.css';
 const Hero = () => {
     return (
         <div className="Hero-Container">
-            <img src={Mural} alt="Hero Image"></img>
+            <img src={Mural}></img>
         </div>
     )
 }
