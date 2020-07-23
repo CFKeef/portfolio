@@ -4,7 +4,6 @@
         margin-bottom: 6REM;
         border-radius: 19px;
         color: white;
-        height: 358px;
     }
     .Card img{
         height: 100%;
@@ -20,6 +19,11 @@
         font-size: 16px;
         margin-top: 4px;
         opacity: 65%;
+        height: auto;
+    }
+    .tech-p {
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
     .Numb0 {
         background: #FD828A;
@@ -39,7 +43,6 @@
         padding: 0 22px;
     }
     .text-desc {
-        height: 64px;
         width: 100%;
         overflow: hidden;
     }
@@ -49,11 +52,21 @@
     }
     .btns a {
         border: 4px solid white;
-        padding: 1REM 1REM;
-        border-radius: 19px;
+        padding: .7REM 1.3REM;
+        border-radius: 4REM;
         text-decoration: none;
         color: white;
         font-size: 18px;
+        display: block;
+        width: 45%;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        top: 1REM;
+    }
+    .link-container {
+        display: inline-block;
+        width: 50%;
     }
     .Github0 { 
         background-color: #B781D0;

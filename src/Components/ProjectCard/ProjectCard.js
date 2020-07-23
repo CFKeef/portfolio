@@ -13,11 +13,15 @@ class ProjectCard extends React.Component {
                     <h2>{this.props.name}</h2>
                     <p className={'text-desc'}>{this.props.description}</p>
                     <h2>Tech</h2>
-                    <p>{this.props.techUsed}</p>
+                    <p class='tech-p'>{this.props.techUsed}</p>
                 </div>
                 <div className='btns'>
-                    <a className={'Github' + this.props.id + ' btnactive'} href="#">Github</a>
-                    <a className={'Live' + this.props.id + ' btnactive'} href="#">Visit</a>
+                    <div className='link-container'>
+                        <a className={'Github' + this.props.id + ' btnactive'} href={this.props.git}>Github</a>
+                    </div>
+                    <div className='link-container'>
+                        <a className={'Live' + this.props.id + ' btnactive'} href={this.props.live}>Visit</a>
+                    </div>
                 </div>
             </div>
         )

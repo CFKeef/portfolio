@@ -21,6 +21,8 @@ class Projects extends Component {
                         techUsed={project.techUsed}
                         imageName={prodoProj}
                         id={project.id}
+                        git={project.gitLink}
+                        live={project.liveLink}
                     />
                 )})}
             </div>
