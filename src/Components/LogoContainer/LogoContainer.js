@@ -5,9 +5,9 @@ import './LogoContainer.css';
 
 const LogoContainer = () => {
     return (
-        <div className="LogoContainer">
+        <a className="LogoContainer" href="/">
             <img src={Logo} alt="website-logo"></img>
-        </div>
+        </a>
     )
 }
 

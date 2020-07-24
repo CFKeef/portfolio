@@ -9,7 +9,7 @@ class ContactSection extends React.Component {
     render() {
         return (
             <div className='form-section'>
-                <div className='header-container'>
+                <div id='test' className='header-container'>
                     <img src={SectionHeader}></img>
                 </div>
                 <Form 

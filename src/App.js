@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 // Stylesheet
 import './App.css';
@@ -10,6 +11,7 @@ import Bio from './Components/Bio/Bio';
 import Projects from './Components/Projects/Projects';
 import ContactSection from './Components/ContactSection/ContactSection';
 import Footer from './Components/Footer/Footer';
+import Resume from './Components/Resume/Resume';
 
 class App extends React.Component {
   // Properties
@@ -27,7 +29,9 @@ class App extends React.Component {
     ],
     formObject : [
       {name: null, email: null, subject: null, message: null}
-    ]
+    ],
+    path : '/',
+    file : null
   }
   // Methods
 
@@ -36,14 +40,26 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Hero />
-        <Bio />
-        <Projects 
-          display={this.state.projectObject}
-        />
-        <ContactSection 
-          form={this.state.formObject}
-        />
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Hero />
+              <Bio />
+              <Projects 
+                display={this.state.projectObject}
+              />
+              <ContactSection 
+                form={this.state.formObject}
+              />
+            </Route>
+            <Route path='/resume'>
+              <Resume />
+              <ContactSection 
+                form={this.state.formObject}
+              />
+            </Route>
+          </Switch>
+        </Router>
         <Footer />
       </div>
     );

@@ -6,10 +6,9 @@ const Menu = () => {
     return (
         <div>
             <ul className="nav">
-                <li><a href="#">Resume</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/resume">Resume</a></li>
+                <li><a href="#test">Contact</a></li>
             </ul>
-                
         </div>
     )
 }
