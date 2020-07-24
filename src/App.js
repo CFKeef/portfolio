@@ -43,8 +43,10 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path='/'>
-              <Hero />
-              <Bio />
+              <div className="firstlook">
+                <Hero />
+                <Bio />
+              </div>
               <Projects 
                 display={this.state.projectObject}
               />

@@ -27,3 +27,57 @@
         padding-bottom: 2REM;
     }
 }
+@media screen and (min-width: 1921px){
+    mark{
+        background:none; 
+        font-weight: 700;   
+    }
+    .pink-highlight{
+        color:#FD828A;
+    }
+    .purple-highlight{
+        color: #b781d0;
+    }
+
+    h1,h2{
+        font-weight: 400;
+        font-size: 28px;
+    }
+
+    h1{
+        margin-bottom: 2REM;
+    }
+    h2{
+        margin-top: 0;
+    }
+    .Bio-Container img{
+        padding-top: 2REM;
+    }
+}
+@media screen and (min-width: 415px) and (max-width:1920px){
+    mark{
+        background:none; 
+        font-weight: 700;   
+    }
+    .pink-highlight{
+        color:#FD828A;
+    }
+    .purple-highlight{
+        color: #b781d0;
+    }
+
+    h1,h2{
+        font-weight: 400;
+        font-size: 25px;
+    }
+
+    h1{
+        margin-bottom: 2REM;
+    }
+    h2{
+        margin-top: 0;
+    }
+    .Bio-Container img{
+        padding-top: 2REM;
+    }
+}

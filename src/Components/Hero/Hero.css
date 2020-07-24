@@ -2,14 +2,38 @@
     .Hero-Container {
         margin: 3REM auto;
     }
-}
-@media screen and (min-width: 1921px){
-    .Hero-Container {
-        margin: 15REM auto;
+    .Hero-Container img {
+        height: 100%;
+        width: 100%;
     }
 }
-@media screen and (max-width: 1920px){
-    .Hero-Container {
-        margin: 15REM auto;
+@media screen and (min-width: 416px) and (max-width: 1920px){
+    .firstlook{
+        margin: 5rem 0 10rem 0;
+    }
+    .Hero-Container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+    .Hero-Container img{
+        height: 75%;
+        width: 75%;
+    }
+}
+@media screen and (min-width: 1921px){
+    .firstlook{
+        margin: 15rem 0 20rem 0;
+    }
+    .Hero-Container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+    .Hero-Container img{
+        height: 75%;
+        width: 75%;
     }
 }
