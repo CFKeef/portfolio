@@ -2,9 +2,14 @@
     .Hero-Container {
         margin: 3REM auto;
     }
-
-    .Hero-Container img {
-        height: 100%;
-        width: 100%;
+}
+@media screen and (min-width: 1921px){
+    .Hero-Container {
+        margin: 15REM auto;
+    }
+}
+@media screen and (max-width: 1920px){
+    .Hero-Container {
+        margin: 15REM auto;
     }
 }
