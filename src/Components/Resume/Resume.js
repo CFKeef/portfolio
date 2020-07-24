@@ -1,13 +1,15 @@
 import React from 'react';
 
+import ResumePDF from '../../Assets/testingresume.pdf';
 import './Resume.css';
 
-class Resume extends React.Component {
-    render() {
-        return(
-            <h1>sadsad</h1>
-        )
-    }
+const Resume = () =>{
+    return(
+        <div className="resume-container">
+            <iframe src={ResumePDF} title='Resume'></iframe>   
+            <a download="PatryckGolebiewski_Resume.pdf" href={ResumePDF}>Download</a>
+        </div>
+    )
 }
 
 export default Resume;

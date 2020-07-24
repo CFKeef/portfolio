@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 // Stylesheet
 import './App.css';
@@ -10,8 +10,8 @@ import Hero from './Components/Hero/Hero';
 import Bio from './Components/Bio/Bio';
 import Projects from './Components/Projects/Projects';
 import ContactSection from './Components/ContactSection/ContactSection';
-import Footer from './Components/Footer/Footer';
 import Resume from './Components/Resume/Resume';
+import Footer from './Components/Footer/Footer';
 
 class App extends React.Component {
   // Properties
@@ -31,7 +31,9 @@ class App extends React.Component {
       {name: null, email: null, subject: null, message: null}
     ],
     path : '/',
-    file : null
+    fileObject : [{
+      file: 'testingresume.pdf', page: 1
+    }]
   }
   // Methods
 
@@ -53,7 +55,9 @@ class App extends React.Component {
               />
             </Route>
             <Route path='/resume'>
-              <Resume />
+              <Resume
+                file={this.state.fileObject}
+              />
               <ContactSection 
                 form={this.state.formObject}
               />

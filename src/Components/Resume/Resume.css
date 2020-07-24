@@ -1,0 +1,22 @@
+@media screen and (max-width: 415px){
+    .resume-container{
+        padding: 2REM;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .resume-container iframe{
+        height: 100%;
+        width: auto;
+    }
+    .resume-container a {
+        text-decoration: none;
+        margin: 1REM;
+        padding: .5REM;
+        background: #B781D0;
+        color: white;
+        border-radius: .5REM;
+    }
+}
