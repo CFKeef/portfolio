@@ -2,12 +2,15 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "-": "0.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "nodemailer": "^6.4.10",
     "react": "^16.13.1",
@@ -36,5 +39,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3001/"
 }

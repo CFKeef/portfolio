@@ -27,16 +27,14 @@ class App extends React.Component {
                                                                                                                  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex \
                                                                                                                  ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'}                                                                                                                                                                                                                          
     ],
-    formObject : [
-      {name: null, email: null, subject: null, message: null}
-    ],
+    name : '',
+    email : '',
+    body : '',
     path : '/',
     fileObject : [{
       file: 'testingresume.pdf', page: 1
     }]
   }
-  // Methods
-
   // Render
   render(){
     return (
@@ -50,17 +48,13 @@ class App extends React.Component {
               <Projects 
                 display={this.state.projectObject}
               />
-              <ContactSection 
-                form={this.state.formObject}
-              />
+              <ContactSection />
             </Route>
             <Route path='/resume'>
               <Resume
                 file={this.state.fileObject}
               />
-              <ContactSection 
-                form={this.state.formObject}
-              />
+              <ContactSection  />
             </Route>
           </Switch>
         </Router>

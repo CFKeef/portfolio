@@ -7,7 +7,7 @@ import './Hero.css';
 const Hero = () => {
     return (
         <div className="Hero-Container">
-            <img src={Mural}></img>
+            <img src={Mural} alt="Circle mural Hero"></img>
         </div>
     )
 }

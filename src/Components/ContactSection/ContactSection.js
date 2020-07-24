@@ -10,14 +10,9 @@ class ContactSection extends React.Component {
         return (
             <div className='form-section'>
                 <div id='test' className='header-container'>
-                    <img src={SectionHeader}></img>
+                    <img src={SectionHeader} alt="Contact form header"></img>
                 </div>
-                <Form 
-                    name={this.props.name}
-                    email={this.props.email}
-                    subject={this.props.subject}
-                    message={this.props.message}
-                />
+                <Form />
             </div>
         )
     }

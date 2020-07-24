@@ -11,7 +11,7 @@ class Projects extends Component {
     render() {
         return (
             <div className="ProjectList"> 
-                <img src={SectionHeader} ></img>
+                <img src={SectionHeader} alt="List of Projects header"></img>
                 {this.props.display.map( (project, index) => {
                    return (
                    <ProjectCard 

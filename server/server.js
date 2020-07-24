@@ -1,19 +1,12 @@
-import {gmailUser, gmailPass} from '../config';
-
-const express = require('express');
-const nodemailer = require('nodemailer');
-const axios = require('axios');
-const cors = require('cors');
+import {gmailUser, gmailPass} from '../config.js';
+import express from 'express';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
 
 const app = express();
 
 // Allow CORS
-app.use(
-    cors({
-        origin: 'http://localhost:3000',
-        credentials: true
-    })
-)
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -34,14 +27,16 @@ app.post('/contacted', (req,res) =>{
     const email = {
         from: req.body.email,
         to: gmailUser,
-        subject: req.body.name + 'wants to connect',
-        text: req.body.message 
+        subject: req.body.name + ' wants to connect at' + req.body.email,
+        text: req.body.body
     }
 
-    smtp.sendMail(emai, (err, res) =>{
-        if(err) console.log('its fucked');
-        else console.log('Contact successful!');
+    smtp.sendMail(email, (err) =>{
+       if(err) res.sendStatus(500);
+       else res.sendStatus(200);
     });
 });
 
-app.listen(3001);
+app.listen(3001, () => {
+    console.log('Listening');
+});
