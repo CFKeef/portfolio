@@ -2,3 +2,6 @@
     margin: 20px;
     font-family: 'Inter';
 }
+*::placeholder {
+    font-family: 'Inter';
+}
