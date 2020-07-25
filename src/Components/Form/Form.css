@@ -31,7 +31,8 @@
         background-color: #ededed;
     }
     textarea::placeholder{
-        font-size: 13px;
+        font-size: 12px;
+        padding-left: 6px;
     }
     button{
         width: 100%;

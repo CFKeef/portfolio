@@ -15,7 +15,7 @@
         height: 100%;
         width: 100%;
         display: flex;
-        justify-content: right;
+        justify-content: flex-end;
     }
     .Hero-Container img{
         height: 75%;
@@ -30,7 +30,7 @@
         height: 100%;
         width: 100%;
         display: flex;
-        justify-content: right;
+        justify-content: flex-end;
     }
     .Hero-Container img{
         height: 75%;

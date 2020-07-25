@@ -27,7 +27,7 @@ app.post('/contacted', (req,res) =>{
     const email = {
         from: req.body.email,
         to: gmailUser,
-        subject: req.body.name + ' wants to connect at' + req.body.email,
+        subject: req.body.name + ' wants to connect at ' + req.body.email,
         text: req.body.body
     }
 

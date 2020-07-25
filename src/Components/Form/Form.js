@@ -27,8 +27,7 @@ class Form extends React.Component {
             if(response.status === 200) alert("Message sent!");
             else alert("Message Failed :(");
         }).catch(err => {
-            alert("Error occurred :(");
-            console.error(err);
+            alert("Error occurred :( " + err);
         })
     }
     nameInputChangeHandler = (event) => {

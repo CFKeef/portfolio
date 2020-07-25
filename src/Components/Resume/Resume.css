@@ -1,7 +1,8 @@
 @media screen and (max-width: 415px){
     .resume-container{
         padding: 2REM;
-        height: 600px;
+        height: 30REM;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -9,8 +10,12 @@
         margin: 0 auto;
     }
     .resume-container iframe{
-        height: 100%;
-        width: 600px;
+        height: 0;
+        width: 0px;
+        min-height: 100%;
+        min-width: 100%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
     }
     .resume-container a {
         text-decoration: none;
