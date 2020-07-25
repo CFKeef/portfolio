@@ -93,21 +93,185 @@
         transform: translateY(2px);
     }
 }
-.Github0 { 
-    background-color: #B781D0;
+@media screen and (min-width: 416px) and (max-width: 1921px){
+    .Card{
+        display: flex;
+        margin: 4REM 0;
+        border-radius: 2REM;
+    }
+
+    .proj-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .Card img{
+        height: 75%;
+        width: auto;
+    }
+    .proj-text{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        margin-right: 2REM;
+    }
+    .Card h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+    .Card p {
+        font-size: 18px;
+        margin-top: 8px;
+        opacity: 65%;
+        height: auto;
+    }
+    .btns{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .btns a {
+        border: 6px solid white;
+        padding: 1REM 2REM;
+        border-radius: 15px;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        display: block;
+        width: 45%;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        left:35px;
+    }
+    .tech-p {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .Numb0 {
+        background: #FD828A;
+    }
+    .Numb1 {
+        background: #B781D0;
+    }
+    .Numb2 {
+        background: #0FCFC9;
+    }
+    .Github0 { 
+        background-color: #B781D0;
+    }
+    .Live0 {
+        background-color: #0FCFC9;
+    }
+    .Github1 { 
+        background-color: #0FCFC9;
+    }
+    .Live1 {
+        background-color: #FD828A;
+    }
+    .Github2 { 
+        background-color: #FD828A;
+    }
+    .Live2 {
+        background-color: #B781D0;
+    }
+    .btnactive{
+        cursor: pointer;
+    }
+    .btnactive:active{
+        transform: translateY(2px);
+    }
 }
-.Live0 {
-    background-color: #0FCFC9;
-}
-.Github1 { 
-    background-color: #0FCFC9;
-}
-.Live1 {
-    background-color: #FD828A;
-}
-.Github2 { 
-    background-color: #FD828A;
-}
-.Live2 {
-    background-color: #B781D0;
+@media screen and (min-width: 1921px){
+    .Card{
+        display: flex;
+        margin: 4REM 0;
+        border-radius: 2REM;
+    }
+
+    .proj-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .Card img{
+        height: 75%;
+        width: auto;
+    }
+    .proj-text{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        margin-right: 2REM;
+    }
+    .Card h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+    .Card p {
+        font-size: 18px;
+        margin-top: 8px;
+        opacity: 65%;
+        height: auto;
+    }
+    .btns{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .btns a {
+        border: 6px solid white;
+        padding: 1REM 2REM;
+        border-radius: 15px;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        display: block;
+        width: 45%;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        left:35px;
+    }
+    .tech-p {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .Numb0 {
+        background: #FD828A;
+    }
+    .Numb1 {
+        background: #B781D0;
+    }
+    .Numb2 {
+        background: #0FCFC9;
+    }
+    .Github0 { 
+        background-color: #B781D0;
+    }
+    .Live0 {
+        background-color: #0FCFC9;
+    }
+    .Github1 { 
+        background-color: #0FCFC9;
+    }
+    .Live1 {
+        background-color: #FD828A;
+    }
+    .Github2 { 
+        background-color: #FD828A;
+    }
+    .Live2 {
+        background-color: #B781D0;
+    }
+    .btnactive{
+        cursor: pointer;
+    }
+    .btnactive:active{
+        transform: translateY(2px);
+    }
 }
