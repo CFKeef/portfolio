@@ -1,15 +1,13 @@
-@media screen and (max-width: 415px) {
-    .footer-section {
-        display: flex;
-        justify-content: center;
-        margin: 2rem 0;
-    }
-    .footer-section a:first-child {
-        margin-right: 2REM;
-    }
+.footer-section {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+.footer-section a:first-child {
+    margin-right: 2REM;
+}
 
-    .footer-section a:active {
-        opacity: 75%;
-        transform: translateY(1px);
-    }
+.footer-section a:active {
+    opacity: 75%;
+    transform: translateY(1px);
 }
