@@ -7,7 +7,7 @@ const Menu = () => {
         <div>
             <ul className="nav">
                 <li><a href="/resume">Resume</a></li>
-                <li><a href="#test">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     )
