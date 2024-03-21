@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { Nav } from "@/components/main-nav";
+import { Footer } from "@/components/footer";
 
-const inter = Inter({
+const inter = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -27,11 +28,14 @@ export default function RootLayout({
           inter.className,
         )}
       >
-        <main className="flex min-h-screen max-w-2xl flex-col p-8 lg:mx-auto gap-16">
+        <main className="flex min-h-screen max-w-2xl flex-col p-8 lg:mx-auto gap-8">
           <aside className="flex w-full flex-row justify-start ">
             <Nav />
           </aside>
           {children}
+          <footer>
+            <Footer />
+          </footer>
         </main>
       </body>
     </html>
