@@ -12,6 +12,7 @@ export default defineConfig({
 			},
 			brand: {
 				yellow: "#ffcb6b",
+				red: "#f06292",
 			},
 		},
 	},
