@@ -1,15 +1,8 @@
-
 dist
 .solid
 .output
 .vercel
 .netlify
-netlify
-.vinxi
-
-# Environment
-.env
-.env*.local
 
 # dependencies
 /node_modules
@@ -27,3 +20,5 @@ gitignore
 # System Files
 .DS_Store
 Thumbs.db
+
+.env

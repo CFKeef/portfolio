@@ -1,32 +1,41 @@
 {
-  "name": "portfolio",
+  "name": "example-with-trpc",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "biome format ./src"
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "format": "biome format ./src",
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "test-ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.2.1",
-    "@astrojs/solid-js": "^4.0.1",
-    "@astrojs/vercel": "^7.4.0",
-    "@effect/platform": "^0.48.17",
-    "@effect/schema": "^0.64.11",
-    "astro": "^4.5.9",
-    "effect": "^2.4.11",
-    "node-html-parser": "^6.1.12",
+    "@decs/typeschema": "^0.12.2",
+    "@effect/platform": "^0.48.20",
+    "@effect/schema": "^0.64.14",
+    "@iconify-json/lucide": "^1.1.177",
+    "@solidjs/meta": "^0.29.2",
+    "@solidjs/router": "^0.13.1",
+    "@solidjs/start": "^1.0.0-rc.0",
+    "@trpc/client": "^10.44.1",
+    "@trpc/server": "^10.44.1",
+    "@unocss/reset": "^0.58.7",
+    "effect": "^2.4.14",
+    "fast-xml-parser": "^4.3.6",
     "solid-js": "^1.8.16",
-    "typescript": "^5.4.3"
+    "unocss": "^0.58.7",
+    "valibot": "^0.26.0",
+    "vinxi": "^0.3.10"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.2",
-    "@iconify-json/lucide": "^1.1.177",
-    "@unocss/reset": "^0.58.6",
-    "unocss": "^0.58.6"
+    "@biomejs/biome": "^1.6.3",
+    "jsdom": "^24.0.0",
+    "vite-plugin-solid": "~2.9.1",
+    "vitest": "^1.4.0"
   }
 }
