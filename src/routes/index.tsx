@@ -1,10 +1,12 @@
 import { Title } from '@solidjs/meta'
 import ReadingActivity from '~/components/ReadingActivity'
-import { getReadingActivity } from '~/server/queries'
+import { getListeningActivity, getReadingActivity } from '~/server/queries'
 
 export default function Home() {
   const reading = getReadingActivity()
+  const listening = getListeningActivity()
 
+  console.log(listening)
   return (
     <main class="space-y-4">
       <Title>Patryck Golebiewski</Title>
