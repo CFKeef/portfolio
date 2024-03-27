@@ -6,6 +6,6 @@ import { prpcVite } from '@solid-mediakit/prpc-plugin'
 export default defineConfig({
   ssr: true,
   vite: {
-    plugins: [prpcVite(), UnoCSS(unoConfig)],
+    plugins: [UnoCSS(unoConfig), prpcVite({ log: false })],
   },
 })

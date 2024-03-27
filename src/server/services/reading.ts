@@ -11,6 +11,9 @@ const blobSchema = v.object({
           user_date_added: v.string(),
           user_read_at: v.optional(v.string()),
           link: v.string(),
+          book: v.object({
+            num_pages: v.number(),
+          }),
         }),
       ),
     }),
@@ -26,7 +29,7 @@ const getXMLText = async (url: string) => {
 }
 
 const bookFromXML = (blob: unknown) => {
-  // console.log(blob.rss.channel.item)
+  //console.log(blob.rss.channel.item)
   const book = v.parse(blobSchema, blob).rss.channel.item.at(0)
 
   if (!book) {
@@ -39,6 +42,7 @@ const bookFromXML = (blob: unknown) => {
     startedAt: book.user_date_added,
     readAt: book.user_read_at,
     link: book.link,
+    pages: book.book.num_pages,
   }
 }
 

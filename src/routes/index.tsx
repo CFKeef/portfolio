@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       <div class="space-y-2">
         <h2 class="text-lg font-bold">Activity</h2>
-        <div class="md:grid md:grid-cols-2">
+        <div>
           {reading.data ? (
             <ReadingActivity
               title={reading.data.title}
@@ -29,24 +29,6 @@ export default function Home() {
             <p>todo</p>
           )}{' '}
         </div>
-      </div>
-
-      <div class="gap-2">
-        <h2 class="text-lg font-bold">Projects</h2>
-        <ul>
-          <li>
-            <p>Currently Listening to: </p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="gap-2">
-        <h2 class="text-lg font-bold">Articles</h2>
-        <ul>
-          <li>
-            <p>Currently Listening to: </p>
-          </li>
-        </ul>
       </div>
     </main>
   )

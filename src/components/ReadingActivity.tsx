@@ -1,16 +1,21 @@
-import type { Reading } from '~/types'
+import { formatRelative } from 'date-fns/formatRelative'
 
-function ReadingActivity(props: Reading) {
+type Props = {
+  title: string
+  author: string
+  startedAt: string
+  completedAt?: string
+}
+
+function ReadingActivity(props: Props) {
   return (
-    <div class="p-4 bg-[#221c46]   grid grid-cols-[.1fr_auto] gap-2 rounded">
-      <div class="flex justify-center items-center">
-        <div class="i-lucide:book h-4 w-4 color-brand-red" />{' '}
-      </div>
-      <div>
-        <h3>{props.title}</h3>
-        <p>{props.author}</p>
-        <span>{props.startedAt}</span>
-      </div>
+    <div class="p-4 bg-[#221c46] gap-2 rounded ">
+      <span class="text-sm text-muted-foreground">Currently Reading</span>
+      <h3>{props.title}</h3>
+      <p>{props.author}</p>
+      <span class="text-sm text-muted-foreground">
+        Started {formatRelative(props.startedAt, new Date(), {})}
+      </span>
     </div>
   )
 }

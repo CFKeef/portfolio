@@ -1,6 +1,10 @@
-import type { NavItem } from '~/types'
 import { A } from '@solidjs/router'
 import { For } from 'solid-js'
+
+type NavItem = {
+  url: string
+  title: string
+}
 
 const entries: Array<NavItem> = [{ url: '/blog', title: 'blog' }]
 
