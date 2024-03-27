@@ -1,9 +1,10 @@
 import { Title } from '@solidjs/meta'
-import { createAsync } from '@solidjs/router'
-import { api } from '~/lib/api'
+import ReadingActivity from '~/components/ReadingActivity'
+import { getReadingActivity } from '~/server/queries'
 
 export default function Home() {
-  const hello = createAsync(() => api.example.hello.query('world'))
+  const reading = getReadingActivity()
+
   return (
     <main class="space-y-4">
       <Title>Patryck Golebiewski</Title>
@@ -14,14 +15,20 @@ export default function Home() {
           ut labore et dolore magna aliqua.
         </p>
       </div>
-
-      <div class="gap-2">
+      <div class="space-y-2">
         <h2 class="text-lg font-bold">Activity</h2>
-        <ul>
-          <li>
-            <p>Currently Listening to: </p>
-          </li>
-        </ul>
+        <div class="md:grid md:grid-cols-2">
+          {reading.data ? (
+            <ReadingActivity
+              title={reading.data.title}
+              author={reading.data.author}
+              startedAt={reading.data.startedAt}
+              completedAt={reading.data.readAt}
+            />
+          ) : (
+            <p>todo</p>
+          )}{' '}
+        </div>
       </div>
 
       <div class="gap-2">

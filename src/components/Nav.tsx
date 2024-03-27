@@ -1,5 +1,6 @@
-import { NavItem } from '~/types/config'
+import type { NavItem } from '~/types'
 import { A } from '@solidjs/router'
+import { For } from 'solid-js'
 
 const entries: Array<NavItem> = [{ url: '/blog', title: 'blog' }]
 
@@ -10,14 +11,16 @@ function Nav() {
         <img src={'/images/chip.svg'} class="h-6 w-6" alt="" />
       </A>
       <div class="gap-4 justify-end flex flex-row">
-        {entries.map((f) => (
-          <A
-            href={f.url}
-            class="flex items-center transition-colors hover:text-foreground/80 sm:text-md capitalize text-primary"
-          >
-            {f.title}
-          </A>
-        ))}
+        <For each={entries}>
+          {(f) => (
+            <A
+              href={f.url}
+              class="flex items-center transition-colors hover:text-foreground/80 sm:text-md capitalize text-primary"
+            >
+              {f.title}
+            </A>
+          )}
+        </For>
       </div>
     </header>
   )

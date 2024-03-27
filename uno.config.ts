@@ -1,19 +1,24 @@
-import { defineConfig, presetUno, presetIcons } from "unocss";
+import { defineConfig, presetUno, presetIcons } from 'unocss'
 
 export default defineConfig({
-	presets: [presetUno(), presetIcons()],
-	theme: {
-		colors: {
-			background: "hsl(249 51% 15%)",
-			foreground: "hsl(0 0% 88%)",
-			primary: {
-				DEFAULT: "hsl(210 40% 98%)",
-				foreground: "hsl(0 0% 88%)",
-			},
-			brand: {
-				yellow: "#ffcb6b",
-				red: "#f06292",
-			},
-		},
-	},
-});
+  presets: [presetUno(), presetIcons()],
+  theme: {
+    colors: {
+      background: 'hsl(249 51% 15%)',
+      foreground: 'hsl(0 0% 88%)',
+      muted: {
+        DEFAULT: 'hsl(240 5% 64.9%)',
+        foreground: 'hsl(240 5% 64.9%)',
+      },
+      primary: {
+        DEFAULT: 'hsl(210 40% 98%)',
+        foreground: 'hsl(0 0% 88%)',
+      },
+      brand: {
+        yellow: '#ffcb6b',
+        red: '#FF4081',
+        gren: '#80CBC4',
+      },
+    },
+  },
+})

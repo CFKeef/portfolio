@@ -13,7 +13,7 @@
 		"types": ["vinxi/client", "vite/client"],
 		"isolatedModules": true,
 		"paths": {
-       "~/*": ["./src/*"]
+      "~/*": ["./src/*"]
     }
 	}
 }

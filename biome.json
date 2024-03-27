@@ -6,10 +6,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "complexity": {
-        "noStaticOnlyClass": "off"
-      }
+      "recommended": true
     },
     "ignore": [
       "node_modules"

@@ -3,15 +3,17 @@ export type NavItem = {
   title: string
 }
 
-export type ReadingActivity = {
+export type Reading = {
   title: string
   author: string
+  startedAt: string
+  completedAt?: string
 }
 
-export type ListeningActivity = {
+export type Listening = {
   isLive: boolean
   title: string
   author: string
 }
 
-export type Activity = ReadingActivity | ListeningActivity
+export type Activity = Reading | Listening

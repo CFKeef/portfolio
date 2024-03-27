@@ -1,8 +1,6 @@
-import { Activity } from '~/types/config'
+import type { Activity as ActivityConfig } from '~/types'
 
-type Props = Activity
-
-function Activity(props: Props) {
+function Activity(props: ActivityConfig) {
   return (
     <div>
       <p>test</p>

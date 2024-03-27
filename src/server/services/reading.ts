@@ -1,35 +1,51 @@
-import * as internal from './internal/reading'
-import type * as Effect from 'effect/Effect'
-import type * as ServiceError from './error.js'
-import * as S from '@effect/schema/Schema'
-import type * as Option from 'effect/Option'
-import * as Context from 'effect/Context'
-import * as Layer from "effect/Layer";
+import * as v from 'valibot'
+import { XMLParser } from 'fast-xml-parser'
 
-const Book = S.struct({
-  title: S.string,
-  author: S.string,
-  startedAt: S.Date,
-  completedAt: S.optional(S.Date, { exact: true }),
+const blobSchema = v.object({
+  rss: v.object({
+    channel: v.object({
+      item: v.array(
+        v.object({
+          title: v.string(),
+          author_name: v.string(),
+          user_date_added: v.string(),
+          user_read_at: v.optional(v.string()),
+          link: v.string(),
+        }),
+      ),
+    }),
+  }),
 })
 
-export type Book = S.Schema.Type<typeof Book>
+const getXMLText = async (url: string) => {
+  const response = await fetch(url)
 
-export const TypeId: unique symbol = internal.TypeId
+  const text = await response.text()
 
-export type TypeId = typeof TypeId
-
-export interface ReadingActivity {
-  readonly [TypeId]: TypeId
-
-  readonly scrape: () => Effect.Effect<Option.Option<Book>, ServiceError.ServerError>
+  return text
 }
 
-export const ReadingActivity: Context.Tag<ReadingActivity, ReadingActivity> =
-  internal.readingActivityTag
+const bookFromXML = (blob: unknown) => {
+  // console.log(blob.rss.channel.item)
+  const book = v.parse(blobSchema, blob).rss.channel.item.at(0)
 
-export const make: (
-  impl: Omit<ReadingActivity, typeof TypeId | 'scrape'> & Partial<ReadingActivity>,
-) => ReadingActivity = internal.make
+  if (!book) {
+    throw new Error('Missing book')
+  }
 
-export const layerReadingActivity: Layer.Layer<ReadingActivity> = Layer.succeed(internal.readingActivityTag, make({}))
+  return {
+    title: book.title,
+    author: book.author_name,
+    startedAt: book.user_date_added,
+    readAt: book.user_read_at,
+    link: book.link,
+  }
+}
+
+export const scrapeReadingActivity = async (url: string) => {
+  const text = await getXMLText(url)
+
+  const xml = new XMLParser().parse(text)
+
+  return bookFromXML(xml)
+}
