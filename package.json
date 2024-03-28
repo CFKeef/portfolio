@@ -14,13 +14,10 @@
   "dependencies": {
     "@decs/typeschema": "^0.12.2",
     "@iconify-json/lucide": "^1.1.177",
-    "@solid-mediakit/prpc": "^1.0.4",
-    "@solid-mediakit/prpc-plugin": "^1.0.2",
     "@solidjs/meta": "^0.29.2",
     "@solidjs/router": "^0.13.1",
     "@solidjs/start": "^1.0.0-rc.0",
     "@spotify/web-api-ts-sdk": "^1.2.0",
-    "@tanstack/solid-query": "^5.28.9",
     "@unocss/reset": "^0.58.7",
     "@upstash/redis": "^1.29.0",
     "date-fns": "^3.6.0",

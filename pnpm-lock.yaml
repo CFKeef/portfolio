@@ -7,16 +7,10 @@ settings:
 dependencies:
   '@decs/typeschema':
     specifier: ^0.12.2
-    version: 0.12.2(effect@2.4.15)(valibot@0.30.0)(vite@5.2.6)(zod@3.22.4)
+    version: 0.12.2(valibot@0.30.0)(vite@5.2.6)
   '@iconify-json/lucide':
     specifier: ^1.1.177
     version: 1.1.178
-  '@solid-mediakit/prpc':
-    specifier: ^1.0.4
-    version: 1.0.4(@solidjs/meta@0.29.3)(@solidjs/router@0.13.1)(@solidjs/start@1.0.0-rc.0)(@tanstack/solid-query@5.28.9)(solid-js@1.8.16)(typescript@4.9.5)(vinxi@0.3.11)(zod@3.22.4)
-  '@solid-mediakit/prpc-plugin':
-    specifier: ^1.0.2
-    version: 1.0.2
   '@solidjs/meta':
     specifier: ^0.29.2
     version: 0.29.3(solid-js@1.8.16)
@@ -41,9 +35,6 @@ dependencies:
   date-fns:
     specifier: ^3.6.0
     version: 3.6.0
-  effect:
-    specifier: ^2.4.15
-    version: 2.4.15
   fast-xml-parser:
     specifier: ^4.3.6
     version: 4.3.6
@@ -488,7 +479,7 @@ packages:
       mime: 3.0.0
     dev: false
 
-  /@decs/typeschema@0.12.2(effect@2.4.15)(valibot@0.30.0)(vite@5.2.6)(zod@3.22.4):
+  /@decs/typeschema@0.12.2(valibot@0.30.0)(vite@5.2.6):
     resolution: {integrity: sha512-PA8uAH/Xfsa5X2UNNSnb5i6vB8qWZywp4+d2U8kNMCO7qwirYRPbFCHwIfWBJyURh4rULn3Ey+VBADLcK2xxaQ==}
     deprecated: TypeSchema has been restructured. Install @typeschema/main or @typeschema/all instead.
     peerDependencies:
@@ -542,10 +533,8 @@ packages:
       zod:
         optional: true
     dependencies:
-      effect: 2.4.15
       valibot: 0.30.0
       vite: 5.2.6
-      zod: 3.22.4
     dev: false
 
   /@deno/shim-deno-test@0.5.0:
@@ -1354,24 +1343,6 @@ packages:
       terser: 5.30.0
     dev: false
 
-  /@rollup/plugin-typescript@11.1.6(typescript@4.9.5):
-    resolution: {integrity: sha512-R92yOmIACgYdJ7dJ97p4K69I8gg6IEHt8M7dUBxN3W6nrO8uUxX5ixl0yU/N3aZTi8WhPuICvOHXQvF6FaykAA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.14.0||^3.0.0||^4.0.0
-      tslib: '*'
-      typescript: '>=3.7.0'
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-      tslib:
-        optional: true
-    dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.13.1)
-      resolve: 1.22.8
-      typescript: 4.9.5
-    dev: false
-
   /@rollup/pluginutils@4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
     engines: {node: '>= 8.0.0'}
@@ -1500,46 +1471,6 @@ packages:
   /@sindresorhus/merge-streams@2.3.0:
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
-    dev: false
-
-  /@solid-mediakit/prpc-plugin@1.0.2:
-    resolution: {integrity: sha512-Q3f193288UJGTjtYW56zf+E33VHBHhAVbret328zS/g1GIXeIApE3icwukz01TJst4d+dk8zVrcOjHhO5EsimA==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@babel/core': 7.24.3
-      '@babel/preset-typescript': 7.24.1(@babel/core@7.24.3)
-      '@rollup/pluginutils': 5.1.0(rollup@4.13.1)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: false
-
-  /@solid-mediakit/prpc@1.0.4(@solidjs/meta@0.29.3)(@solidjs/router@0.13.1)(@solidjs/start@1.0.0-rc.0)(@tanstack/solid-query@5.28.9)(solid-js@1.8.16)(typescript@4.9.5)(vinxi@0.3.11)(zod@3.22.4):
-    resolution: {integrity: sha512-vHm4TZICI7aEFM3ZoxV9ExgltQGAii7Eslik1ZgRDoJe4JD0fXaLLNDu9tYbAQ/7g9g5VyVu6nV1Pre0+voG0Q==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      '@solidjs/meta': ^0.29.3
-      '@solidjs/router': ^0.13.1
-      '@solidjs/start': ^1.0.0-rc.0
-      '@tanstack/solid-query': ^5.28.5
-      solid-js: ^1.8.15
-      typescript: ^4.8.2
-      vinxi: ^0.3.10
-      zod: ^3.22.4
-    dependencies:
-      '@rollup/plugin-typescript': 11.1.6(typescript@4.9.5)
-      '@rollup/pluginutils': 5.1.0(rollup@4.13.1)
-      '@solidjs/meta': 0.29.3(solid-js@1.8.16)
-      '@solidjs/router': 0.13.1(solid-js@1.8.16)
-      '@solidjs/start': 1.0.0-rc.0(solid-js@1.8.16)(vinxi@0.3.11)(vite@5.2.6)
-      '@tanstack/solid-query': 5.28.9(solid-js@1.8.16)
-      solid-js: 1.8.16
-      typescript: 4.9.5
-      vinxi: 0.3.11(@upstash/redis@1.29.0)
-      zod: 3.22.4
-    transitivePeerDependencies:
-      - rollup
-      - tslib
     dev: false
 
   /@solidjs/meta@0.29.3(solid-js@1.8.16):
@@ -2760,10 +2691,6 @@ packages:
 
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
-    dev: false
-
-  /effect@2.4.15:
-    resolution: {integrity: sha512-fwOeADUSbmlvbNpAlUlNhuCPHN08VKt53YbtSzNe9aZK3CclVJdq2gPgo1TCaGQsJpPf42xw7QrrTBQiH94few==}
     dev: false
 
   /electron-to-chromium@1.4.718:
@@ -4896,12 +4823,6 @@ packages:
   /type-fest@3.13.1:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
-    dev: false
-
-  /typescript@4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
     dev: false
 
   /ufo@1.5.3:

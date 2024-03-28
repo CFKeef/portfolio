@@ -1,7 +1,6 @@
-import { query$ } from '@solid-mediakit/prpc'
 import { type Book, scrapeReadingActivity } from './services/reading'
 import { getRedis } from './cache'
-import { type Track, getActivity as getListeningActivity } from './services/listening'
+import { getActivity as getListeningActivity } from './services/listening'
 import { cache } from '@solidjs/router'
 
 export const getReading = cache(async () => {
