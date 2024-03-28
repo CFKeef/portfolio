@@ -1,37 +1,29 @@
-import { middleware$, query$ } from '@solid-mediakit/prpc'
-import { scrapeReadingActivity } from './services/reading'
-import { SpotifyApi } from '@spotify/web-api-ts-sdk'
+import { query$ } from '@solid-mediakit/prpc'
+import { type Book, scrapeReadingActivity } from './services/reading'
+import { getRedis } from './cache'
+import { type Track, getActivity as getListeningActivity } from './services/listening'
+import { cache } from '@solidjs/router'
 
-const withSpotify = middleware$(async () => {
-  const api = SpotifyApi.withClientCredentials(
-    process.env.SPOTIFY_CLIENT_ID as string,
-    process.env.SPOTIFY_CLIENT_SECRET as string,
-    ['user-read-currently-playing'],
-  )
+export const getReading = cache(async () => {
+  'use server'
 
-  return {
-    spotify: api as SpotifyApi,
+  const redis = await getRedis()
+
+  const cached = await redis.get<Book>('reading')
+
+  if (!cached) {
+    const fresh = await scrapeReadingActivity(process.env.READER_RSS as string)
+
+    redis.setex('reading', 864000, fresh)
+
+    return fresh
   }
-})
 
-export const getReadingActivity = query$({
-  queryFn: async ({ ctx$ }) => {
-    return await scrapeReadingActivity(process.env.READER_RSS as string)
-  },
-  key: 'reading',
-})
+  return cached
+}, 'reading')
 
-export const getListeningActivity = query$({
-  queryFn: async ({ ctx$ }) => {
-    const test = await ctx$.spotify.makeRequest(
-      'GET',
-      'https://api.spotify.com/v1/me/player/currently-playing',
-    )
+export const getListening = cache(async () => {
+  'use server'
 
-    console.log('test', test)
-
-    return ''
-  },
-  middleware: [withSpotify],
-  key: 'listening',
-})
+  return await getListeningActivity()
+}, 'listening')

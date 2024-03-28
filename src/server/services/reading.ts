@@ -28,8 +28,16 @@ const getXMLText = async (url: string) => {
   return text
 }
 
+export type Book = {
+  title: string
+  author: string
+  startedAt: string
+  readAt?: string
+  link: string
+  pages: number
+}
+
 const bookFromXML = (blob: unknown) => {
-  //console.log(blob.rss.channel.item)
   const book = v.parse(blobSchema, blob).rss.channel.item.at(0)
 
   if (!book) {
@@ -43,7 +51,7 @@ const bookFromXML = (blob: unknown) => {
     readAt: book.user_read_at,
     link: book.link,
     pages: book.book.num_pages,
-  }
+  } as Book
 }
 
 export const scrapeReadingActivity = async (url: string) => {

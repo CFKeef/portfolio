@@ -1,12 +1,20 @@
 import { Title } from '@solidjs/meta'
 import ReadingActivity from '~/components/ReadingActivity'
-import { getListeningActivity, getReadingActivity } from '~/server/queries'
+import { createAsync, type RouteDefinition } from '@solidjs/router'
+import { getListening, getReading } from '~/server/queries'
+import { Show } from 'solid-js'
+import ListeningActivity from '~/components/Listening'
+
+export const route = {
+  load: () => {
+    Promise.allSettled([getReading(), getListening()])
+  },
+} satisfies RouteDefinition
 
 export default function Home() {
-  const reading = getReadingActivity()
-  const listening = getListeningActivity()
+  const reading = createAsync(() => getReading())
+  const listening = createAsync(() => getListening())
 
-  console.log(listening)
   return (
     <main class="space-y-4">
       <Title>Patryck Golebiewski</Title>
@@ -19,18 +27,18 @@ export default function Home() {
       </div>
       <div class="space-y-2">
         <h2 class="text-lg font-bold">Activity</h2>
-        <div>
-          {reading.data ? (
+        <Show when={reading()}>
+          {(data) => (
             <ReadingActivity
-              title={reading.data.title}
-              author={reading.data.author}
-              startedAt={reading.data.startedAt}
-              completedAt={reading.data.readAt}
+              title={data().title}
+              author={data().author}
+              startedAt={data().startedAt}
+              completedAt={data().readAt}
             />
-          ) : (
-            <p>todo</p>
-          )}{' '}
-        </div>
+          )}
+        </Show>
+
+        <Show when={listening()}>{(data) => <ListeningActivity {...data()} />}</Show>
       </div>
     </main>
   )
