@@ -9,8 +9,12 @@ import remarkGfm from 'remark-gfm'
 import remarkFrontmatter from 'remark-frontmatter'
 import { unified } from 'unified'
 
+const toFileName = (slug: string) => slug.replaceAll('%20', '-').toLocaleLowerCase()
+
 export const getArticle = async (slug: string) => {
-  const filePath = path.join(process.cwd(), 'src', 'articles', `${slug}.md`)
+  const fileName = toFileName(slug)
+
+  const filePath = path.join(process.cwd(), 'src', 'articles', `${fileName}.md`)
 
   const file = await fs.readFile(filePath)
 
@@ -24,4 +28,14 @@ export const getArticle = async (slug: string) => {
     .process(file)
 
   return processed.value
+}
+
+export const getArticleFiles = async () => {
+  const filePath = path.join(process.cwd(), 'src', 'articles')
+
+  const entries = await fs.readdir(filePath, { withFileTypes: false })
+
+  const files = entries.map((e) => e.replaceAll('-', ' ').slice(0, e.length - 3))
+
+  return files
 }

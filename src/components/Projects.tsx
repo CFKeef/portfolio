@@ -26,7 +26,7 @@ const Project = (props: Project) => {
   return (
     <a
       href={props.link}
-      class="w-full bg-foreground p-2 rounded hover:bg-brand-red/80 space-y-2"
+      class="w-full bg-foreground p-4 rounded hover:bg-brand-red/80 space-y-2"
       target="_blank"
       rel="noreferrer"
     >

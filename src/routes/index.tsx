@@ -1,20 +1,22 @@
 import { Title } from '@solidjs/meta'
 import ReadingActivity from '~/components/Reading'
 import { createAsync, type RouteDefinition } from '@solidjs/router'
-import { getListening, getReading } from '~/server/queries'
+import { getArticles, getListening, getReading } from '~/server/queries'
 import { Show } from 'solid-js'
 import ListeningActivity from '~/components/Listening'
 import { Projects } from '~/components/Projects'
+import { Articles } from '~/components/Articles'
 
 export const route = {
   load: () => {
-    Promise.allSettled([getReading(), getListening()])
+    Promise.allSettled([getReading(), getListening(), getArticles()])
   },
 } satisfies RouteDefinition
 
 export default function Home() {
   const reading = createAsync(() => getReading())
   const listening = createAsync(() => getListening())
+  const articles = createAsync(() => getArticles())
 
   return (
     <main class="space-y-4">
@@ -39,6 +41,7 @@ export default function Home() {
 
       <section class="space-y-2">
         <h2 class="text-lg font-bold">Articles</h2>
+        <Show when={articles()}>{(data) => <Articles entries={data()} />}</Show>
       </section>
     </main>
   )

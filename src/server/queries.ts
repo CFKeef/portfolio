@@ -2,6 +2,7 @@ import { type Book, scrapeReadingActivity } from './services/reading'
 import { getRedis } from './cache'
 import { getActivity as getListeningActivity } from './services/listening'
 import { cache } from '@solidjs/router'
+import { getArticleFiles } from './services/blog'
 
 export const getReading = cache(async () => {
   'use server'
@@ -26,3 +27,9 @@ export const getListening = cache(async () => {
 
   return await getListeningActivity()
 }, 'listening')
+
+export const getArticles = cache(async () => {
+  'use server'
+
+  return await getArticleFiles()
+}, 'articles')

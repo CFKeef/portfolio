@@ -14,7 +14,7 @@ function Nav() {
       <A href="/">
         <img src={'/images/chip.svg'} class="h-6 w-6" alt="" />
       </A>
-      <div class="gap-4 justify-end flex flex-row">
+      {/* <div class="gap-4 justify-end flex flex-row">
         <For each={entries}>
           {(f) => (
             <A
@@ -25,7 +25,7 @@ function Nav() {
             </A>
           )}
         </For>
-      </div>
+      </div> */}
     </header>
   )
 }
