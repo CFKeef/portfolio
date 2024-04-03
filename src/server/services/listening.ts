@@ -117,8 +117,6 @@ const makeRequest = async (api: SpotifyApi) => {
 
   const body = await response.json()
 
-  console.log(body)
-
   return v.parse(CurrentTrack, body)
 }
 
