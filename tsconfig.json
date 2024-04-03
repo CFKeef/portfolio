@@ -9,6 +9,7 @@
 		"jsxImportSource": "solid-js",
 		"allowJs": true,
 		"strict": true,
+		"exactOptionalPropertyTypes": true,
 		"noEmit": true,
 		"types": ["vinxi/client", "vite/client"],
 		"isolatedModules": true,

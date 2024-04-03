@@ -5,7 +5,7 @@ export default defineConfig({
   theme: {
     colors: {
       background: 'hsl(249 51% 15%)',
-      foreground: 'hsl(0 0% 88%)',
+      foreground: '#221c46',
       muted: {
         DEFAULT: 'hsl(240 5% 64.9%)',
         foreground: 'hsl(240 5% 64.9%)',

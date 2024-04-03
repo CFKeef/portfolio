@@ -60,6 +60,10 @@ const refreshCredentials = async (api: SpotifyApi): Promise<SpotifyApi> => {
   return globalForSpotify.spotify
 }
 
+const ExternalLinks = v.object({
+  spotify: v.string(),
+})
+
 const CurrentTrack = v.object({
   item: v.object({
     album: v.object({
@@ -75,11 +79,10 @@ const CurrentTrack = v.object({
     artists: v.array(
       v.object({
         name: v.string(),
-        external_urls: v.object({
-          spotify: v.string(),
-        }),
+        external_urls: ExternalLinks,
       }),
     ),
+    external_urls: ExternalLinks,
   }),
 })
 
@@ -92,6 +95,7 @@ export type Track = {
   name: string
   artists: { name: string; url: string }[]
   image?: Image
+  link: string
 }
 
 const makeRequest = async (api: SpotifyApi) => {
@@ -112,6 +116,8 @@ const makeRequest = async (api: SpotifyApi) => {
   }
 
   const body = await response.json()
+
+  console.log(body)
 
   return v.parse(CurrentTrack, body)
 }
@@ -147,5 +153,6 @@ export const getActivity = async () => {
     name: current.item.name,
     artists: current.item.artists.map((e) => ({ name: e.name, url: e.external_urls.spotify })),
     image: current.item.album.images[0],
+    link: current.item.external_urls.spotify,
   } as Track
 }

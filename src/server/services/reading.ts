@@ -14,6 +14,7 @@ const blobSchema = v.object({
           book: v.object({
             num_pages: v.number(),
           }),
+          book_medium_image_url: v.string(),
         }),
       ),
     }),
@@ -35,6 +36,7 @@ export type Book = {
   readAt?: string
   link: string
   pages: number
+  image: string
 }
 
 const bookFromXML = (blob: unknown) => {
@@ -51,6 +53,7 @@ const bookFromXML = (blob: unknown) => {
     readAt: book.user_read_at,
     link: book.link,
     pages: book.book.num_pages,
+    image: book.book_medium_image_url,
   } as Book
 }
 

@@ -1,13 +1,20 @@
-import { For, Switch, Match } from 'solid-js'
 import type { Track } from '~/server/services/listening'
+import { Activity } from './Activity'
+import { createMemo } from 'solid-js'
 
-function ListeningActivity(props: Track) {
+type Props = Track
+
+const ListeningActivity = (props: Props) => {
+  const joinedArtists = createMemo(() => {
+    return props.artists.map((e) => e.name).join(',')
+  })
+
   return (
-    <div class="p-4 bg-[#221c46] gap-2 rounded ">
-      <span class="text-sm text-muted-foreground">Listening to</span>
-      <h3>{props.name}</h3>
-      <For each={props.artists}>{(artist) => <p>{artist.name}</p>}</For>
-    </div>
+    <Activity icon="i-lucide:music" link={props.link}>
+      <span class="truncate">
+        {props.name} - {joinedArtists()}
+      </span>
+    </Activity>
   )
 }
 

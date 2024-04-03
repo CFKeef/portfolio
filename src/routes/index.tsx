@@ -1,5 +1,5 @@
 import { Title } from '@solidjs/meta'
-import ReadingActivity from '~/components/ReadingActivity'
+import ReadingActivity from '~/components/Reading'
 import { createAsync, type RouteDefinition } from '@solidjs/router'
 import { getListening, getReading } from '~/server/queries'
 import { Show } from 'solid-js'
@@ -27,17 +27,7 @@ export default function Home() {
       </div>
       <div class="space-y-2">
         <h2 class="text-lg font-bold">Activity</h2>
-        <Show when={reading()}>
-          {(data) => (
-            <ReadingActivity
-              title={data().title}
-              author={data().author}
-              startedAt={data().startedAt}
-              completedAt={data().readAt}
-            />
-          )}
-        </Show>
-
+        <Show when={reading()}>{(data) => <ReadingActivity {...data()} />}</Show>
         <Show when={listening()}>{(data) => <ListeningActivity {...data()} />}</Show>
       </div>
     </main>
