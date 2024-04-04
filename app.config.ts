@@ -7,4 +7,9 @@ export default defineConfig({
   vite: {
     plugins: [UnoCSS(unoConfig)],
   },
+  server: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
 })

@@ -27,8 +27,11 @@ const Article = (props: {
       target="_blank"
       rel={'noreferrer'}
     >
-      <h3>{props.name}</h3>
-      <span class="text-sm">{new Date().toLocaleDateString()}</span>
+      <div>
+        <h3>{props.name}</h3>
+        <span class="text-sm text-muted">{new Date().toLocaleDateString()}</span>
+      </div>
+      <div class="i-lucide:link h-4 w-4" />
     </a>
   )
 }

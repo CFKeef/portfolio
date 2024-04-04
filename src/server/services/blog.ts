@@ -1,13 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import remarkGfm from 'remark-gfm'
-import remarkFrontmatter from 'remark-frontmatter'
-import { unified } from 'unified'
+import { string, type Input, object, parse } from 'valibot'
 
 const toFileName = (slug: string) => slug.replaceAll('%20', '-').toLocaleLowerCase()
 
@@ -18,16 +11,50 @@ export const getArticle = async (slug: string) => {
 
   const file = await fs.readFile(filePath)
 
-  const processed = await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(remarkFrontmatter)
-    .use(remarkGfm)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
-    .process(file)
+  const stred = file.toString()
 
-  return processed.value
+  const endIdx = stred.lastIndexOf('---') + 3
+
+  const [metadataBlob, fileBlob] = [
+    stred.substring(0, endIdx),
+    stred.substring(endIdx, stred.length).trimStart(),
+  ]
+
+  const metadata = parseMetadata(metadataBlob)
+
+  return { metadata, file: fileBlob }
+}
+
+const metadata = object({
+  title: string(),
+  date: string(),
+})
+
+type Metadata = Input<typeof metadata>
+
+const parseMetadata = (raw: string): Metadata | null => {
+  const builder: Record<string, unknown> = {}
+
+  for (const line of raw.split('\n')) {
+    const splitIdx = line.indexOf(':')
+
+    const rawKey = line.substring(0, splitIdx)
+    const rawVal = line.substring(splitIdx + 1).trim()
+
+    if (rawKey.length === 0 || rawKey.length === 0) {
+      continue
+    }
+
+    builder[rawKey] = rawVal
+  }
+
+  try {
+    const parsed = parse(metadata, builder)
+
+    return parsed
+  } catch (error) {
+    return null
+  }
 }
 
 export const getArticleFiles = async () => {
