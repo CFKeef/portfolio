@@ -1,12 +1,14 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { string, type Input, object, parse } from 'valibot'
+import { getBucketItems } from '../storage'
+import * as v from 'valibot'
 
 const toFileName = (slug: string) => slug.replaceAll('%20', '-').toLocaleLowerCase()
 
 export const getArticle = async (slug: string) => {
   const fileName = toFileName(slug)
-
+  
   const filePath = path.join(process.cwd(), 'src', 'articles', `${fileName}.md`)
 
   const file = await fs.readFile(filePath)
@@ -58,11 +60,10 @@ const parseMetadata = (raw: string): Metadata | null => {
 }
 
 export const getArticleFiles = async () => {
-  const filePath = path.join(process.cwd(), 'src', 'articles')
+  const items = await getBucketItems()
 
-  const entries = await fs.readdir(filePath, { withFileTypes: false })
+  console.log( process.env.CF_ACCESS_ID)
+  console.log(items.Contents)
 
-  const files = entries.map((e) => e.replaceAll('-', ' ').slice(0, e.length - 3))
-
-  return files
+  return ["test"]
 }

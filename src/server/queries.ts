@@ -2,7 +2,8 @@ import { type Book, scrapeReadingActivity } from './services/reading'
 import { getRedis } from './cache'
 import { getActivity as getListeningActivity } from './services/listening'
 import { cache } from '@solidjs/router'
-import { getArticleFiles } from './services/blog'
+import { getBucketItems } from './storage'
+import * as v from "valibot";
 
 export const getReading = cache(async () => {
   'use server'
@@ -28,8 +29,25 @@ export const getListening = cache(async () => {
   return await getListeningActivity()
 }, 'listening')
 
+export type ExcludeFromArray<T extends any[], ToExclude> = Exclude<T[number], ToExclude>
+
+
+const articleSchema = v.object({
+  name: v.string(),
+  createdAt: v.date()
+})
+
+type ArticleMeta = {
+  name: string,
+  createdAt: Date  
+}
+
 export const getArticles = cache(async () => {
   'use server'
 
-  return await getArticleFiles()
+  const response = await getBucketItems()
+  console.log(response)
+  const files = (response.Contents??[]).map((e) => {name: e}).filter((e): e is string => !!Boolean(e))
+
+  return files
 }, 'articles')
