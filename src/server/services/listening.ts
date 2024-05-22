@@ -53,11 +53,7 @@ const getToken = async (
 }
 
 const refreshCredentials = async (api: SpotifyApi): Promise<SpotifyApi> => {
-  const nextApi = await createAPI(api.details)
-
-  globalForSpotify.spotify = nextApi
-
-  return globalForSpotify.spotify
+  return await createAPI(api.details)
 }
 
 const ExternalLinks = v.object({
@@ -120,22 +116,27 @@ const makeRequest = async (api: SpotifyApi) => {
   return v.parse(CurrentTrack, body)
 }
 
-const globalForSpotify = global as unknown as { spotify: SpotifyApi }
 
-const getApi = async () => {
-  if (globalForSpotify.spotify) {
-    return globalForSpotify.spotify
+const getApi =  async () => {
+  const cache = await getRedis();
+
+  let api;
+
+  const cachedDetails = await cache.get<SpotifyApi | null>("spotify-session")
+
+  if(!cachedDetails) {
+    api = await createAPI({
+      id: process.env.SPOTIFY_CLIENT_ID as string,
+      secret: process.env.SPOTIFY_CLIENT_SECRET as string,
+      scopes: ['user-read-currently-playing', 'user-read-playback-state'],
+    })
+  
+    await cache.set("spotify-session", api)
+  } else {
+    api = cachedDetails
   }
 
-  const api = await createAPI({
-    id: process.env.SPOTIFY_CLIENT_ID as string,
-    secret: process.env.SPOTIFY_CLIENT_SECRET as string,
-    scopes: ['user-read-currently-playing', 'user-read-playback-state'],
-  })
-
-  globalForSpotify.spotify = api
-
-  return globalForSpotify.spotify
+  return api
 }
 
 export const getActivity = async () => {

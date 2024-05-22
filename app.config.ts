@@ -6,9 +6,6 @@ export default defineConfig({
   ssr: true,
   vite: {
     plugins: [UnoCSS(unoConfig)],
-    define: {
-      global: {}
-    }
   },
   server: {
     prerender: {
@@ -16,7 +13,7 @@ export default defineConfig({
     },
     preset: "cloudflare-pages",
     rollupConfig: {
-      external: ["__STATIC_CONTENT_MANIFEST", "node:async_hooks"],
+      external: ["node:async_hooks"],
     }
   },
 })
