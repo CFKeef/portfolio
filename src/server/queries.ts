@@ -4,6 +4,8 @@ import { getActivity as getListeningActivity } from './services/listening'
 import { cache } from '@solidjs/router'
 import { getBucketItems } from './storage'
 import * as v from "valibot";
+import { S } from '@upstash/redis/zmscore-d1ec861c'
+import { getArticleLocation } from './services/blog'
 
 export const getReading = cache(async () => {
   'use server'
@@ -32,22 +34,23 @@ export const getListening = cache(async () => {
 export type ExcludeFromArray<T extends any[], ToExclude> = Exclude<T[number], ToExclude>
 
 
-const articleSchema = v.object({
-  name: v.string(),
-  createdAt: v.date()
+const ArticleSchema = v.object({
+  name: v.pipe(
+    v.string(),
+    // Article names are blog_<title>.md
+    v.transform((str) => str.substring(5, str.length - 3).replaceAll("-", " ")),
+  ),
+  createdAt: v.date(),
 })
 
-type ArticleMeta = {
-  name: string,
-  createdAt: Date  
-}
+export type ArticleDetail = v.InferOutput<typeof ArticleSchema>
 
 export const getArticles = cache(async () => {
   'use server'
 
   const response = await getBucketItems()
-  console.log(response)
-  const files = (response.Contents??[]).map((e) => {name: e}).filter((e): e is string => !!Boolean(e))
 
+  const files: ArticleDetail[] =  (response.Contents??[]).map((e) => v.parse(ArticleSchema, {name: e.Key, createdAt: e.LastModified}))
+  
   return files
 }, 'articles')

@@ -41,7 +41,7 @@ export default function Home() {
 
       <section class="space-y-2">
         <h2 class="text-lg font-bold">Articles</h2>
-        <Show when={articles()}>{(data) => <Articles entries={data()} />}</Show>
+        <Show when={articles()}>{(data) => <Articles items={data()} />}</Show>
       </section>
     </main>
   )

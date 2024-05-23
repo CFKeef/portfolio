@@ -1,25 +1,18 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
-import { string, type Input, object, parse } from 'valibot'
-import { getBucketItems } from '../storage'
-import * as v from 'valibot'
+import { string, type InferInput, object, parse } from 'valibot'
 
 const toFileName = (slug: string) => slug.replaceAll('%20', '-').toLocaleLowerCase()
 
 export const getArticle = async (slug: string) => {
   const fileName = toFileName(slug)
-  
-  const filePath = path.join(process.cwd(), 'src', 'articles', `${fileName}.md`)
+  const location = getArticleLocation(fileName)
 
-  const file = await fs.readFile(filePath)
+  const blob = await fetch(location).then((f) => f.text());
 
-  const stred = file.toString()
-
-  const endIdx = stred.lastIndexOf('---') + 3
+  const endIdx = blob.lastIndexOf('---') + 3
 
   const [metadataBlob, fileBlob] = [
-    stred.substring(0, endIdx),
-    stred.substring(endIdx, stred.length).trimStart(),
+    blob.substring(0, endIdx),
+    blob.substring(endIdx, blob.length).trimStart(),
   ]
 
   const metadata = parseMetadata(metadataBlob)
@@ -32,7 +25,7 @@ const metadata = object({
   date: string(),
 })
 
-type Metadata = Input<typeof metadata>
+type Metadata = InferInput<typeof metadata>
 
 const parseMetadata = (raw: string): Metadata | null => {
   const builder: Record<string, unknown> = {}
@@ -59,11 +52,7 @@ const parseMetadata = (raw: string): Metadata | null => {
   }
 }
 
-export const getArticleFiles = async () => {
-  const items = await getBucketItems()
 
-  console.log( process.env.CF_ACCESS_ID)
-  console.log(items.Contents)
-
-  return ["test"]
+export const getArticleLocation = (name:string) => {
+  return `https://${process.env.CF_R2_DOMAIN}/blog_${name}.md`
 }

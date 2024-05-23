@@ -14,4 +14,4 @@ const storage = new S3Client({
     },
   });
   
-export const getBucketItems = async () => await storage.send(new ListObjectsV2Command({Bucket: bucketName}))
+export const getBucketItems = async () => await storage.send(new ListObjectsV2Command({Bucket: bucketName, MaxKeys: 20, Prefix: "blog"}))

@@ -6,10 +6,7 @@ import { SolidMarkdown } from 'solid-markdown'
 
 async function fetchArticle(slug: string) {
   'use server'
-  const fs = await import('fs/promises');
 
-  const test = await fs.readdir("/articles")
-  console.log(test)
   const article = await getArticle(slug)
 
   return article

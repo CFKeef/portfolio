@@ -1,21 +1,16 @@
 import { For, createMemo } from 'solid-js'
+import { ArticleDetail } from '~/server/queries'
 
-type Props = {
-  entries: string[]
-}
 
-export const Articles = (props: Props) => {
-  console.log(props.entries)
+export const Articles = (props: {items: ArticleDetail[]}) => {
   return (
     <div class="gap-2 w-full flex flex-col">
-      <For each={props.entries}>{(e) => <Article name={e} />}</For>
+      <For each={props.items}>{(e) => <Article {...e} />}</For>
     </div>
   )
 }
 
-const Article = (props: {
-  name: string
-}) => {
+const Article = (props:ArticleDetail) => {
   const link = createMemo(() => {
     return `/blog/${props.name}`
   })
