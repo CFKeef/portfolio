@@ -1,4 +1,4 @@
-import { string, type InferInput, object, parse } from 'valibot'
+import { string, type Input, object, parse } from 'valibot'
 
 const toFileName = (slug: string) => slug.replaceAll('%20', '-').toLocaleLowerCase()
 
@@ -25,7 +25,7 @@ const metadata = object({
   date: string(),
 })
 
-type Metadata = InferInput<typeof metadata>
+type Metadata = Input<typeof metadata>
 
 const parseMetadata = (raw: string): Metadata | null => {
   const builder: Record<string, unknown> = {}

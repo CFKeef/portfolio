@@ -26,7 +26,7 @@
     "solid-markdown": "^2.0.3",
     "unocss": "^0.58.9",
     "unstorage": "1.10.2",
-    "valibot": "^0.31.0-rc.1",
+    "valibot": "^0.30.0",
     "vinxi": "^0.3.11"
   },
   "engines": {

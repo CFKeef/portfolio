@@ -35,15 +35,14 @@ export type ExcludeFromArray<T extends any[], ToExclude> = Exclude<T[number], To
 
 
 const ArticleSchema = v.object({
-  name: v.pipe(
-    v.string(),
-    // Article names are blog_<title>.md
-    v.transform((str) => str.substring(5, str.length - 3).replaceAll("-", " ")),
-  ),
+  // Article names are blog_<title>.md
+  name:  
+  v.transform(v.string(),(str) => str.substring(5, str.length - 3).replaceAll("-", " ")),
+  
   createdAt: v.date(),
 })
 
-export type ArticleDetail = v.InferOutput<typeof ArticleSchema>
+export type ArticleDetail = v.Output<typeof ArticleSchema>
 
 export const getArticles = cache(async () => {
   'use server'
