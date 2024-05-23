@@ -4,8 +4,6 @@ import { getActivity as getListeningActivity } from './services/listening'
 import { cache } from '@solidjs/router'
 import { getBucketItems } from './storage'
 import * as v from "valibot";
-import { S } from '@upstash/redis/zmscore-d1ec861c'
-import { getArticleLocation } from './services/blog'
 
 export const getReading = cache(async () => {
   'use server'
