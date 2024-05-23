@@ -7,7 +7,6 @@ import * as v from "valibot";
 
 export const getReading = cache(async () => {
   'use server'
-
   const redis = await getRedis()
 
   const cached = await redis.get<Book>('reading')
