@@ -1,4 +1,4 @@
-import { type Book, scrapeReadingActivity } from './services/reading'
+import {scrapeReadingActivity } from './services/reading'
 
 import { getActivity as getListeningActivity } from './services/listening'
 import { cache } from '@solidjs/router'
