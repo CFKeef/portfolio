@@ -1,7 +1,7 @@
 import { add } from 'date-fns/add'
 import { isAfter } from 'date-fns/isAfter'
 import * as v from 'valibot'
-import { getRedis } from '../cache'
+
 
 type Scope = 'user-read-playback-state' | 'user-read-currently-playing'
 
@@ -118,25 +118,11 @@ const makeRequest = async (api: SpotifyApi) => {
 
 
 const getApi =  async () => {
-  const cache = await getRedis();
-
-  let api;
-
-  const cachedDetails = await cache.get<SpotifyApi | null>("spotify-session")
-
-  if(!cachedDetails) {
-    api = await createAPI({
-      id: process.env.SPOTIFY_CLIENT_ID as string,
-      secret: process.env.SPOTIFY_CLIENT_SECRET as string,
-      scopes: ['user-read-currently-playing', 'user-read-playback-state'],
-    })
-  
-    await cache.set("spotify-session", api)
-  } else {
-    api = cachedDetails
-  }
-
-  return api
+  return await createAPI({
+    id: process.env.SPOTIFY_CLIENT_ID as string,
+    secret: process.env.SPOTIFY_CLIENT_SECRET as string,
+    scopes: ['user-read-currently-playing', 'user-read-playback-state'],
+  })
 }
 
 export const getActivity = async () => {
