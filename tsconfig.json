@@ -13,8 +13,9 @@
 		"noEmit": true,
 		"types": ["vinxi/client", "vite/client"],
 		"isolatedModules": true,
+		"resolveJsonModule": true,
 		"paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
     }
 	}
 }

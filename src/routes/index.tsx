@@ -1,23 +1,27 @@
 import { Title } from '@solidjs/meta'
 import ReadingActivity from '~/components/Reading'
-import { createAsync, type RouteDefinition } from '@solidjs/router'
-import { getArticles, getListening, getReading } from '~/server/queries'
-import { Show } from 'solid-js'
+import { cache, createAsync, type RouteDefinition } from '@solidjs/router'
+import {  getListening, getReading } from '~/server/queries'
+import { Show, createResource } from 'solid-js'
 import ListeningActivity from '~/components/Listening'
 import { Projects } from '~/components/Projects'
 import { Articles } from '~/components/Articles'
+import { getArticleList } from './api'
+
+
 
 export const route = {
   load: () => {
-    Promise.allSettled([getReading(), getListening(), getArticles()])
+    Promise.allSettled([getReading(), getListening()])
   },
 } satisfies RouteDefinition
 
 export default function Home() {
   const reading = createAsync(() => getReading())
   const listening = createAsync(() => getListening())
-  const articles = createAsync(() => getArticles())
 
+  const [articles] = createResource(() => getArticleList());
+  
   return (
     <main class="space-y-4">
       <Title>Patryck Golebiewski</Title>
