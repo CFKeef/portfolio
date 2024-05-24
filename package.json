@@ -23,7 +23,6 @@
     "date-fns": "^3.6.0",
     "fast-xml-parser": "^4.4.0",
     "solid-js": "^1.8.17",
-    "solid-markdown": "^2.0.3",
     "unocss": "^0.58.9",
     "valibot": "^0.30.0",
     "vinxi": "^0.3.11"
