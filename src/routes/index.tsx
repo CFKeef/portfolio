@@ -1,15 +1,15 @@
 import { Title } from '@solidjs/meta'
 import ReadingActivity from '~/components/Reading'
 import { createAsync, type RouteDefinition } from '@solidjs/router'
-import { getArticles, getListening, getReading } from '~/server/queries'
+import {  getListening, getReading } from '~/server/queries'
 import { Show } from 'solid-js'
 import ListeningActivity from '~/components/Listening'
 import { Projects } from '~/components/Projects'
-import { Articles } from '~/components/Articles'
+
 
 export const route = {
   load: () => {
-    Promise.allSettled([getReading(), getListening(), getArticles()])
+    Promise.allSettled([getReading(), getListening()])
   },
 } satisfies RouteDefinition
 
