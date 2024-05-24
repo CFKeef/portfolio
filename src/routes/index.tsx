@@ -19,10 +19,7 @@ export default function Home() {
       <Title>Patryck Golebiewski</Title>
       <section class="gap-2">
         <h1 class="text-xl font-bold">Hi I'm Patryck // Keef</h1>
-        <p class="my-2 text-primary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua.
-        </p>
+        <p class="my-2 text-primary">Currently looking for a new role!</p>
       </section>
       {/* <section class="space-y-2">
         <h2 class="text-lg font-bold">Activity</h2>

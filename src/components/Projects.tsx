@@ -9,7 +9,7 @@ type Project = {
 const projects = [
   {
     name: 'keef.sh',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    description: 'My personal portfolio',
     link: 'https://github.com/CFKeef/portfolio/',
   },
 ]
@@ -26,7 +26,7 @@ const Project = (props: Project) => {
   return (
     <a
       href={props.link}
-      class="w-full bg-foreground p-4 rounded hover:bg-brand-red/80 space-y-2"
+      class="w-full bg-foreground p-4 rounded hover:bg-brand-red/80 space-y-2 h-full"
       target="_blank"
       rel="noreferrer"
     >
