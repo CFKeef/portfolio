@@ -16,7 +16,7 @@ export const route = {
 export default function Home() {
   const reading = createAsync(() => getReading())
   const listening = createAsync(() => getListening())
-  const articles = createAsync(() => getArticles())
+  // const articles = createAsync(() => getArticles())
 
   return (
     <main class="space-y-4">
@@ -39,10 +39,10 @@ export default function Home() {
         <Projects />
       </section>
 
-      <section class="space-y-2">
+      {/* <section class="space-y-2">
         <h2 class="text-lg font-bold">Articles</h2>
         <Show when={articles()}>{(data) => <Articles entries={data()} />}</Show>
-      </section>
+      </section> */}
     </main>
   )
 }
